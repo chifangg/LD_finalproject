@@ -1,7 +1,3 @@
-Gmail	chifang <chifangsunny@gmail.com>
-射門.v
-宋少棠 <7sunny78910@gmail.com>	2023年1月14日 下午1:41
-收件者: chifang <chifangsunny@gmail.com>
 module Top(
     input clk,
     input rst,
