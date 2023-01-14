@@ -38,7 +38,7 @@ module demo_1(
       .h_cnt(h_cnt),
       .v_cnt(v_cnt)
     );
-      
+     
 endmodule
 
 `timescale 1ns/1ps
@@ -61,7 +61,7 @@ module vga_controller (
     parameter HF = 16;
     parameter HS = 96;
     parameter HB = 48;
-    parameter HT = 800; 
+    parameter HT = 800;
     parameter VD = 480;
     parameter VF = 10;
     parameter VS = 2;
@@ -86,7 +86,7 @@ module vga_controller (
             if ((pixel_cnt >= (HD + HF - 1)) && (pixel_cnt < (HD + HF + HS - 1)))
                 hsync_i <= ~hsync_default;
             else
-                hsync_i <= hsync_default; 
+                hsync_i <= hsync_default;
 
     always @(posedge pclk)
         if (reset)
@@ -100,11 +100,11 @@ module vga_controller (
 
     always @(posedge pclk)
         if (reset)
-            vsync_i <= vsync_default; 
+            vsync_i <= vsync_default;
         else if ((line_cnt >= (VD + VF - 1)) && (line_cnt < (VD + VF + VS - 1)))
-            vsync_i <= ~vsync_default; 
+            vsync_i <= ~vsync_default;
         else
-            vsync_i <= vsync_default; 
+            vsync_i <= vsync_default;
 
     assign hsync = hsync_i;
     assign vsync = vsync_i;
@@ -191,11 +191,11 @@ module pixel_gen(
         else if(h_cnt >= 400 && h_cnt <= 410 && v_cnt >= 70 && v_cnt <= 200)//-
              {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
         else if(h_cnt >= 240 && h_cnt <= 245 && v_cnt >= 80 && v_cnt <= 190)//-
-             {vgaRed, vgaGreen, vgaBlue} = 12'hcd0; 
+             {vgaRed, vgaGreen, vgaBlue} = 12'hcd0;
         else if(h_cnt >= 230 && h_cnt <= 410 && v_cnt >= 200 && v_cnt <= 205)//-
-             {vgaRed, vgaGreen, vgaBlue} = 12'hcd0; 
+             {vgaRed, vgaGreen, vgaBlue} = 12'hcd0;
         else if(h_cnt >= 410 && h_cnt <= 415 && v_cnt >= 70 && v_cnt <= 205)//-
-             {vgaRed, vgaGreen, vgaBlue} = 12'hcd0; 
+             {vgaRed, vgaGreen, vgaBlue} = 12'hcd0;
              
         //block_blue
         else if(h_cnt >= 110 && h_cnt <= 290 && v_cnt >= 290 && v_cnt <= 300)
@@ -256,7 +256,7 @@ module pixel_gen(
 //             {vgaRed, vgaGreen, vgaBlue} = 12'heab;
 //        else if(h_cnt >= 90 && h_cnt <= 135 && v_cnt >= 280 && v_cnt <= 330)//-
 //             {vgaRed, vgaGreen, vgaBlue} = 12'heab;
-        
+       
         //A
         else if(h_cnt >= 55 && h_cnt <= 60 && v_cnt >= 350 && v_cnt <= 390)//-
              {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -282,7 +282,7 @@ module pixel_gen(
              {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
         else if(h_cnt >= 570 && h_cnt <= 575 && v_cnt >= 377 && v_cnt <= 382)//-
             {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
-            
+           
         // time_num
 //        // left_0
 //        else if(h_cnt >= 265 && h_cnt <= 270 && (v_cnt >= 100 && v_cnt <= 175)) begin
@@ -297,7 +297,7 @@ module pixel_gen(
 //        else if(h_cnt >= 265 && h_cnt <= 310 && (v_cnt >= 170 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // right_0
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 270 + 70 && (v_cnt >= 100 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -311,7 +311,7 @@ module pixel_gen(
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && (v_cnt >= 170 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // left_1
 //        else if(h_cnt >= 300 && h_cnt <= 310 && (v_cnt >= 100 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -320,7 +320,7 @@ module pixel_gen(
 //        else if(h_cnt >= 300 + 70 && h_cnt <= 310 + 70 && (v_cnt >= 100 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // right_2
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && ((v_cnt >= 100 && v_cnt <= 105) || (v_cnt >= 170 && v_cnt <= 175) || (v_cnt >= 135 && v_cnt <= 140))) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -383,7 +383,7 @@ module pixel_gen(
 //        else if(h_cnt >= 290 + 70 && h_cnt <= 295 + 70 && v_cnt >= 100 && v_cnt <= 175) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // right_5
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && ((v_cnt >= 100 && v_cnt <= 105) || (v_cnt >= 170 && v_cnt <= 175) || (v_cnt >= 135 && v_cnt <= 140))) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -405,7 +405,7 @@ module pixel_gen(
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 270 + 70 && v_cnt >= 105 && v_cnt <= 170) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // right_7
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && v_cnt >= 100 && v_cnt <= 105) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -413,7 +413,7 @@ module pixel_gen(
 //        else if(h_cnt >= 305 + 70 && h_cnt <= 310 + 70 && v_cnt >= 100 && v_cnt <= 175) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // right_8
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 270 + 70 && (v_cnt >= 100 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -430,7 +430,7 @@ module pixel_gen(
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && (v_cnt >= 170 && v_cnt <= 175)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        // right 9
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 270 + 70 && (v_cnt >= 100 && v_cnt <= 135)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -440,7 +440,7 @@ module pixel_gen(
 //        end
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && (v_cnt >= 100 && v_cnt <= 105)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
-//        end                                                                                                                           
+//        end                                                                                                                          
 //        else if(h_cnt >= 265 + 70 && h_cnt <= 310 + 70 && (v_cnt >= 135 && v_cnt <= 140)) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
@@ -498,7 +498,7 @@ module pixel_gen(
 //        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
-        
+       
 //        //  pointA_3
 //        else if(h_cnt >= 225 && h_cnt <= 231 && v_cnt >= 325 && v_cnt <= 425) begin
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
@@ -514,15 +514,131 @@ module pixel_gen(
 //            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
 //        end
 
-        // pointA_4
-//        else if(h_cnt >= 225 && h_cnt <= 231
-//        )
+//        // pointA_4
+//        else if(h_cnt >= 170 && h_cnt <= 176 && v_cnt >= 325 && v_cnt <= 385) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 208 && h_cnt <= 213 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 && h_cnt <= 231 && v_cnt >= 380 && v_cnt <= 385) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        //  pointB_4
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 176 + 240 && v_cnt >= 325 && v_cnt <= 385) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 208 + 240 && h_cnt <= 213 + 240 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && v_cnt >= 380 && v_cnt <= 385) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
 
+//        // pointA_5
+//        else if(h_cnt >= 170 && h_cnt <= 176 && v_cnt >= 325 && v_cnt <= 372) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 && h_cnt <= 231 && v_cnt >= 377 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 && h_cnt <= 231 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        //  pointB_5
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 176 + 240 && v_cnt >= 325 && v_cnt <= 372) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 + 240 && h_cnt <= 231 + 240 && v_cnt >= 377 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+        
+//        // pointA_6
+//        else if(h_cnt >= 170 && h_cnt <= 176 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 && h_cnt <= 231 && v_cnt >= 377 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 && h_cnt <= 231 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        // pointB_6
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 176 + 240 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 + 240 && h_cnt <= 231 + 240 && v_cnt >= 377 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+        
+//        // pointA_7
+//        else if(h_cnt >= 225 && h_cnt <= 231 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 && h_cnt <= 231 && v_cnt >= 325 && v_cnt <= 330) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        // pointB_7
+//        else if(h_cnt >= 225 + 240 && h_cnt <= 231 + 240 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && v_cnt >= 325 && v_cnt <= 330) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+
+//        // pointA_8
+//        else if(h_cnt >= 170 && h_cnt <= 176 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 && h_cnt <= 231 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 && h_cnt <= 231 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        // pointB_8
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 176 + 240 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 + 240 && h_cnt <= 231 + 240 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+
+//        // pointA_9
+//        else if(h_cnt >= 170 && h_cnt <= 176 && v_cnt >= 325 && v_cnt <= 372) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 && h_cnt <= 231 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 && h_cnt <= 231 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        // pointB_9
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 176 + 240 && v_cnt >= 325 && v_cnt <= 372) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 225 + 240 && h_cnt <= 231 + 240 && v_cnt >= 325 && v_cnt <= 425) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
+//        else if(h_cnt >= 170 + 240 && h_cnt <= 231 + 240 && ((v_cnt >= 325 && v_cnt <= 330) || (v_cnt >= 420 && v_cnt <= 425) || (v_cnt >= 372 && v_cnt <= 377))) begin
+//            {vgaRed, vgaGreen, vgaBlue} = 12'hfff;
+//        end
         
 
-        
+       
+
+       
         else
              {vgaRed, vgaGreen, vgaBlue} = 12'h0;
    end
 endmodule
-
